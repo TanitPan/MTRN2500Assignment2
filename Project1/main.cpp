@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 //uiuifuck off dont fuck me!!!
+=======
+//FUck ydsahfjslkdaf
+//sadfj lkasjdofijwi;oeafj wef
+>>>>>>> efd24ada2a4643957cf3bf5fd5c068e239502598
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>

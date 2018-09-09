@@ -363,3 +363,4 @@ ASALocalRun/
 *.exe
 *.out
 *.app
+*.db
