@@ -1,54 +1,12 @@
-﻿  Camera.cpp
-d:\mtrn2500assignment2\project1\camera.cpp(42): warning C4305: '=': truncation from 'double' to 'float'
-d:\mtrn2500assignment2\project1\camera.cpp(43): warning C4305: '=': truncation from 'double' to 'float'
-d:\mtrn2500assignment2\project1\camera.cpp(84): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-d:\mtrn2500assignment2\project1\camera.cpp(215): warning C4305: '*=': truncation from 'double' to 'float'
-d:\mtrn2500assignment2\project1\camera.cpp(216): warning C4305: '*=': truncation from 'double' to 'float'
-d:\mtrn2500assignment2\project1\camera.cpp(217): warning C4305: '*=': truncation from 'double' to 'float'
-d:\mtrn2500assignment2\project1\camera.cpp(276): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-d:\mtrn2500assignment2\project1\camera.cpp(282): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-d:\mtrn2500assignment2\project1\camera.cpp(283): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-d:\mtrn2500assignment2\project1\camera.cpp(354): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-d:\mtrn2500assignment2\project1\camera.cpp(398): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-d:\mtrn2500assignment2\project1\camera.cpp(399): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-d:\mtrn2500assignment2\project1\camera.cpp(434): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-d:\mtrn2500assignment2\project1\camera.cpp(439): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-d:\mtrn2500assignment2\project1\camera.cpp(443): warning C4101: 'new_dest_dir': unreferenced local variable
-d:\mtrn2500assignment2\project1\camera.cpp(768): warning C4305: '=': truncation from 'double' to 'float'
-d:\mtrn2500assignment2\project1\camera.cpp(769): warning C4305: '=': truncation from 'double' to 'float'
-d:\mtrn2500assignment2\project1\camera.cpp(774): warning C4305: '=': truncation from 'double' to 'float'
-d:\mtrn2500assignment2\project1\camera.cpp(775): warning C4305: '=': truncation from 'double' to 'float'
-d:\mtrn2500assignment2\project1\camera.cpp(780): warning C4305: '=': truncation from 'double' to 'float'
-d:\mtrn2500assignment2\project1\camera.cpp(781): warning C4305: '=': truncation from 'double' to 'float'
-  circle.cpp
-d:\mtrn2500assignment2\project1\circle.cpp(48): warning C4804: '-': unsafe use of type 'bool' in operation
-d:\mtrn2500assignment2\project1\circle.cpp(39): warning C4101: 'spinspeed': unreferenced local variable
-  Frustum.cpp
-  Ground.cpp
-d:\mtrn2500assignment2\project1\ground.cpp(21): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-d:\mtrn2500assignment2\project1\ground.cpp(22): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-d:\mtrn2500assignment2\project1\ground.cpp(24): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-d:\mtrn2500assignment2\project1\ground.cpp(25): warning C4244: 'argument': conversion from 'int' to 'GLfloat', possible loss of data
-  HUD.cpp
-d:\mtrn2500assignment2\project1\hud.cpp(40): warning C4018: '<': signed/unsigned mismatch
-  KeyManager.cpp
-  main.cpp
-d:\mtrn2500assignment2\project1\main.cpp(153): warning C4018: '<': signed/unsigned mismatch
-  Messages.cpp
-d:\mtrn2500assignment2\project1\messages.cpp(239): warning C4018: '<': signed/unsigned mismatch
-  myVehicle.cpp
-  mywheel.cpp
-  Obstacle.cpp
-  ObstacleManager.cpp
-  Quaternion.cpp
-  rectangle.cpp
-  RemoteDataManager.cpp
-  Shape.cpp
-  Tp.cpp
-  TriangularPrism.cpp
-  VectorMaths.cpp
-d:\mtrn2500assignment2\project1\vectormaths.cpp(123): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-  Vehicle.cpp
-d:\mtrn2500assignment2\project1\vehicle.cpp(22): warning C4018: '<': signed/unsigned mismatch
+﻿  main.cpp
+d:\mtrn2500\project1\project1\main.cpp(51): error C2628: 'remotevehicle' followed by 'void' is illegal (did you forget a ';'?)
+d:\mtrn2500\project1\project1\main.cpp(107): error C2664: 'void glutDisplayFunc(void (__cdecl *)(void))': cannot convert argument 1 from 'remotevehicle (__cdecl *)(void)' to 'void (__cdecl *)(void)'
+  d:\mtrn2500\project1\project1\main.cpp(107): note: None of the functions with this name in scope match the target type
+d:\mtrn2500\project1\project1\main.cpp(154): warning C4018: '<': signed/unsigned mismatch
+d:\mtrn2500\project1\project1\main.cpp(173): error C2556: 'void display(void)': overloaded function differs only by return type from 'remotevehicle display(void)'
+  d:\mtrn2500\project1\project1\main.cpp(51): note: see declaration of 'display'
+d:\mtrn2500\project1\project1\main.cpp(173): error C2371: 'display': redefinition; different basic types
+  d:\mtrn2500\project1\project1\main.cpp(51): note: see declaration of 'display'
+  remotevehicle.cpp
+d:\mtrn2500\project1\project1\remotevehicle.cpp(39): error C2533: 'remotevehicle::{ctor}': constructors not allowed a return type
   Generating Code...
-  Project1.vcxproj -> D:\MTRN2500Assignment2\Debug\Project1.exe

@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-//uiuifuck off dont fuck me!!!
-=======
-//FUck ydsahfjslkdaf
-//sadfj lkasjdofijwi;oeafj wef
->>>>>>> efd24ada2a4643957cf3bf5fd5c068e239502598
+
 #include <iostream>
 #include <cstdlib>
 #include <cstdio>
@@ -48,6 +43,7 @@
 #include "TriangularPrism.hpp"
 #include "Tp.hpp"
 #include "myVehicle.hpp"
+#include "remotevehicle.hpp"
 //circle C(0,30,50, 1, 0, 0, 50);
 
 
@@ -335,55 +331,79 @@ void idle() {
 					vm.remoteID = 0;
 				
 		
+					ShapeInit part;
+					
+					//Part number 1
+					part.type = RECTANGULAR_PRISM;
+					part.params.rect.xlen = 12.0;
+					part.params.rect.ylen = 3.0;
+					part.params.rect.zlen = 3.0;
+					part.rgb[0] = 1.0;
+					part.rgb[1] = 1.0;
+					part.rgb[2] = 0.0;
+					part.rotation = 0.0;
+					part.xyz[0] = 0.0;
+					part.xyz[1] = 0.0;
+					part.xyz[2] = 0.0;
+					vm.shapes.push_back(part);
+					//Part number 2
+					part.type = TRIANGULAR_PRISM;
+					part.params.tri.alen = 12.0;
+					part.params.tri.blen = 3.0;
+					part.params.tri.angle = 60.0;
+					part.params.tri.depth = 3.0;
+					part.rgb[0] = 1.0;
+					part.rgb[1] = 1.0;
+					part.rgb[2] = 1.0;
+					part.rotation = 0.0;
+					part.xyz[0] = 0.0;
+					part.xyz[1] = 4.0;
+					part.xyz[2] = 0.0;
+					vm.shapes.push_back(part);
+					//Part number 3
+					part.type = CYLINDER;
+					part.params.cyl.radius = 30.0;
+					part.params.cyl.depth = 1.0;
+					part.params.cyl.isRolling = 1;
+					part.params.cyl.isSteering = 1;
+					part.rgb[0] = 1.0;
+					part.rgb[1] = 0.0;
+					part.rgb[2] = 0.0;
+					part.rotation = 0.0;
+					part.xyz[0] = 0.0;
+					part.xyz[1] = 10.0;
+					part.xyz[2] = 0.0;
+					vm.shapes.push_back(part);
+					//Part Number 4
+					part.type = CYLINDER;
+					part.params.cyl.radius = 3.0;
+					part.params.cyl.depth = 1.0;
+					part.params.cyl.isRolling = 0;
+					part.params.cyl.isSteering = 0;
+					part.rgb[0] = 1.0;
+					part.rgb[1] = 0.0;
+					part.rgb[2] = 0.0;
+					part.rotation = 0.0;
+					part.xyz[0] = 0.0;
+					part.xyz[1] = 15.0;
+					part.xyz[2] = 0.0;
+					vm.shapes.push_back(part);
+					//Part 5
+					part.type = TRAPEZOIDAL_PRISM;
+					part.params.trap.alen = 7;
+					part.params.trap.blen = 5;
+					part.params.trap.height = 4;
+					part.params.trap.aoff = 0;
+					part.params.trap.depth = 4;
+					part.rgb[0] = 1.0;
+					part.rgb[1] = 0.0;
+					part.rgb[2] = 0.0;
+					part.rotation = 0.0;
+					part.xyz[0] = 0.0;
+					part.xyz[1] = 25.0;
+					part.xyz[2] = 0.0;
+					vm.shapes.push_back(part);
 
-					//Shape* shp;
-					//vm.shapes.clear();
-
-					//for (std::vector<ShapeInit>::iterator iter = vm.shapes.begin(); iter != vm.shapes.end(); ++iter) {
-					//	switch (iter->type) {
-					//	case CYLINDER:
-					//		shp = new circle(iter->params.cyl.radius, iter->params.cyl.depth, iter->params.cyl.isSteering);
-					//		if (iter->params.cyl.isSteering == 1) {
-					//		//	shp->setRotation(getSteering());
-					//		}
-					//		/*	if (iter->params.cyl.isRolling == 1) {
-					//		shp->setTurning(getSpeed());
-					//		}*/
-					//		break;
-					//	case RECTANGULAR_PRISM:
-					//		shp = new rectangle(iter->params.rect.xlen, iter->params.rect.ylen, iter->params.rect.zlen);
-
-					//		break;
-					//	case TRIANGULAR_PRISM:
-					//		shp = new triangular(iter->params.tri.alen, iter->params.tri.blen, iter->params.tri.depth, iter->params.tri.angle);
-
-					//		break;
-					//		/*	case TRAPEZOIDAL_PRISM:
-					//		shp = new tp(iter->params.trap.alen, iter->params.trap.blen, iter->params.trap.height, iter->params.trap.depth, iter->params.trap.aoff);
-					//		break;
-					//		}*/
-					//		shp->setColor(iter->rgb[0], iter->rgb[1], iter->rgb[2]);
-					//		shp->setPosition(iter->xyz[0], iter->xyz[1], iter->xyz[2]);
-					//		//std::cout << iter->params.rect.xlen << std::endl;
-					//		addShape(shp);
-
-					//	}
-
-					//}
-
-
-					//for (auto iter = vm.shapes.begin(); iter != vm.shapes.end(); ++iter) {
-
-					//	glPushMatrix();
-					//	//positionInGL();
-
-					//	//draw in local frame
-					//	(*iter)->draw();
-					//	//move back to global frame of reference
-					//	////cout << "speed is" << vehicleSpeed << endl;
-					//	glPopMatrix();
-
-					//}
 				//	myVehicle;
 
 
@@ -456,7 +476,7 @@ void idle() {
 								VehicleModel vm = models[i];
 								
 								// uncomment the line below to create remote vehicles
-								otherVehicles[vm.remoteID] = new myVehicle();
+								otherVehicles[vm.remoteID] = new remotevehicle(vm);
 
 								//
 								// more student code goes here

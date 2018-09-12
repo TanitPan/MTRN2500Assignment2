@@ -33,6 +33,7 @@
     <ClInclude Include="Quaternion.hpp" />
     <ClInclude Include="rectangle.hpp" />
     <ClInclude Include="RemoteDataManager.hpp" />
+    <ClInclude Include="remotevehicle.hpp" />
     <ClInclude Include="Shape.hpp" />
     <ClInclude Include="Tp.hpp" />
     <ClInclude Include="TriangularPrism.hpp" />
@@ -55,6 +56,7 @@
     <ClCompile Include="Quaternion.cpp" />
     <ClCompile Include="rectangle.cpp" />
     <ClCompile Include="RemoteDataManager.cpp" />
+    <ClCompile Include="remotevehicle.cpp" />
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="Tp.cpp" />
     <ClCompile Include="TriangularPrism.cpp" />
@@ -134,12 +136,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>D:\MTRN2500Assignment2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\MTRN2500\Project1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>D:\MTRN2500Assignment2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>D:\MTRN2500\Project1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>glu32.lib;glut32.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
