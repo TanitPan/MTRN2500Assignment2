@@ -7,31 +7,26 @@
 #include <vector>
 #include "Vehicle.hpp"
 #include "Messages.hpp"
+#include <GL/glut.h>
 
 
 
-class remotevehicle : public Vehicle {
 
-protected:
+class remotevehicle : public Vehicle 
+{
 
 
 
 public:
 remotevehicle();
 remotevehicle(VehicleModel Model);
+void draw();
 
 
-virtual void draw();
-virtual ~remotevehicle() {};
-static const int MAX_FORWARD_SPEED_MPS = 10;
-static const int MAX_BACKWARD_SPEED_MPS = -4;
-static const int MAX_LEFT_STEERING_DEGS = 15;
-static const int MAX_RIGHT_STEERING_DEGS = -15;
-static const int VEHICLE_BOUNDS = 3;
-
-double getSpeed() const { return speed; }
-double getSteering() const { return steering; }
 
 
-}
+
+
+
+};
 #endif

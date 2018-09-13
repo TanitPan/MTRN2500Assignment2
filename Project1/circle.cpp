@@ -19,24 +19,12 @@ circle::circle(double radius, double depth, double wheel)
 
 }
 
-//circle::circle (double bRadius, double tRadius, double height, int slices, int stack, double InRadius, double OutRadius, int loop)
-//{
-//	this->bRadius = bRadius;
-//	this->tRadius = tRadius; 
-//	this->height = height;
-//	this->slices = slices;
-//	this->stack = stack;
-//	this->InRadius = InRadius;
-//	this->OutRadius = OutRadius;
-//	this->loop = loop;
-//
-//}	
 
-
+double spinspeed;
 
 void circle::draw()
 {
-	double spinspeed;
+	
 	//glTranslated(x, y, z);
 	
 	glPushMatrix();
@@ -45,13 +33,12 @@ void circle::draw()
 
 	if (wheel != 0) {
 		//spinspeed += (PI*turning) / radius;
-		glRotatef(-steering, 0, 1, 0);
+		glRotatef(-rotation, 0, 1, 0);
+		std::cout << rotation << std::endl;
 		//glRotatef(-spinspeed, 0, 0, 1);
 	}
 
-	//setPosition(0,0,0);
-
-	//glColor3f(1,0,0);
+	
 
 	static GLUquadric *cylinder = gluNewQuadric();
 	gluCylinder(cylinder, radius, radius, depth, 100, 10);
@@ -61,18 +48,7 @@ void circle::draw()
 
 	glPopMatrix();
 
-	/*
-	double p, q, theta = 0.0;
-	glColor3f(red, green, blue);
-	glLoadIdentity();
-	glBegin(GL_LINE_LOOP);
-	do
-	{
-		p = x + Radius * cos(theta);
-		q = y + Radius * sin(theta);
-		glVertex2f(p, q);
-		theta += 0.005;
-	} while (theta < 2 * 3.15);*/
+	
 	glEnd();
 }
 //

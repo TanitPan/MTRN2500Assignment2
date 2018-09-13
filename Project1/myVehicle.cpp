@@ -47,13 +47,11 @@ myVehicle::myVehicle()
 	shp = new circle(0.4, 0.1, 1); //FL wheel
 	shp->setPosition(1.05, 0.4, 1.05);
 	shp->setColor(0, 1, 0);
-	shp->setRotation(getSteering());
 	shapes.push_back(shp);
 
 	shp = new circle(0.4, 0.1, 1); //FR wheel
 	shp->setPosition(1.05, 0.4, -1.05);
 	shp->setColor(0, 1, 0);
-	shp->setRotation(getSteering());
 	shapes.push_back(shp);
 
 	shp = new circle(0.8, 0.1, 1); //BL wheel
@@ -166,11 +164,16 @@ void myVehicle::draw()
 	positionInGL();
 	setColorInGL();
 	for (std::vector<Shape*>::iterator iter = shapes.begin(); iter != shapes.end(); ++iter) {
-		//circle*cylinder = dynamic_cast<circle*>(*iter);
-		//if (cylinder != nullptr) {
-			
-				//(*iter)->setRotation(getSteering());
-
+		/*circle*cylinder = dynamic_cast<circle*>(*iter);
+		if (cylinder != nullptr) {
+			if (cylinder->getSteering() ==1) {
+				(*iter)->setRotation(getSteering());
+			}*/
+			/*if ((*iter)->params.cyl.isRolling == 1) {
+				shp->setTurning(getSpeed());
+			}
+				(*iter)->setRotation(getSteering());
+*/
 
 				(*iter)->draw();
 		//}

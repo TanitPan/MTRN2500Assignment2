@@ -19,12 +19,12 @@ protected:
 	double height;
 	int stack;
 	double radius;
-	double wheel;
+	
 	double depth;
 
 
 public:
-	
+	double wheel;
 	circle();
 	//circle(double bRadius, double tRadius, double height, int slices, int stack, double InRadius, double OutRadius, int loop);
 	circle(double radius, double depth, double wheel);
@@ -33,6 +33,7 @@ public:
 	virtual void draw();
 	bool steering;
 	bool rolling;
+	bool getSteering() { return steering; }
 	//void move(double x, double y); //inherited move is sufficient - see definition
 //	bool steering;
 //	bool rolling; 

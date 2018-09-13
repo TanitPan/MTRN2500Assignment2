@@ -199,7 +199,7 @@ void display() {
 
 	// draw my vehicle
 	if (vehicle != NULL) {
-		vehicle->draw();
+//		vehicle->draw();
 
 	}
 
@@ -216,7 +216,7 @@ void display() {
 	T.draw();
 	TP.draw();
 	C.draw();*/
-	mydraw();
+	//mydraw();
 	
 	
 	glutSwapBuffers();
@@ -311,10 +311,10 @@ void idle() {
 	if(frameCounter % 4 == 0 && vehicle != NULL) {
 
 		// if not connected, attempt to connect every 2 seconds
+				// erase other vehicles
 		if(!RemoteDataManager::IsConnected()) {
 			if(frameCounter % 120 == 0) {
 		
-				// erase other vehicles
 				for(std::map<int, Vehicle*>::iterator iter = otherVehicles.begin(); iter  != otherVehicles.end(); ++iter) {
 					delete iter->second;
 				}
@@ -335,19 +335,19 @@ void idle() {
 					
 					//Part number 1
 					part.type = RECTANGULAR_PRISM;
-					part.params.rect.xlen = 12.0;
-					part.params.rect.ylen = 3.0;
-					part.params.rect.zlen = 3.0;
-					part.rgb[0] = 1.0;
-					part.rgb[1] = 1.0;
-					part.rgb[2] = 0.0;
+					part.params.rect.xlen = 3.0;
+					part.params.rect.ylen = 1.0;
+					part.params.rect.zlen = 2.0;
+					part.rgb[0] = 0.0;
+					part.rgb[1] = 0.0;
+					part.rgb[2] = 1.0;
 					part.rotation = 0.0;
 					part.xyz[0] = 0.0;
-					part.xyz[1] = 0.0;
+					part.xyz[1] = 0.4;
 					part.xyz[2] = 0.0;
 					vm.shapes.push_back(part);
 					//Part number 2
-					part.type = TRIANGULAR_PRISM;
+					/*part.type = TRIANGULAR_PRISM;
 					part.params.tri.alen = 12.0;
 					part.params.tri.blen = 3.0;
 					part.params.tri.angle = 60.0;
@@ -359,88 +359,82 @@ void idle() {
 					part.xyz[0] = 0.0;
 					part.xyz[1] = 4.0;
 					part.xyz[2] = 0.0;
-					vm.shapes.push_back(part);
+					vm.shapes.push_back(part);*/
 					//Part number 3
 					part.type = CYLINDER;
-					part.params.cyl.radius = 30.0;
-					part.params.cyl.depth = 1.0;
+					part.params.cyl.radius = 0.4;
+					part.params.cyl.depth = 0.1;
 					part.params.cyl.isRolling = 1;
 					part.params.cyl.isSteering = 1;
-					part.rgb[0] = 1.0;
-					part.rgb[1] = 0.0;
+					part.rgb[0] = 0.0;
+					part.rgb[1] = 1.0;
 					part.rgb[2] = 0.0;
 					part.rotation = 0.0;
-					part.xyz[0] = 0.0;
-					part.xyz[1] = 10.0;
-					part.xyz[2] = 0.0;
+					part.xyz[0] = 1.05;
+					part.xyz[1] = 0.4;
+					part.xyz[2] = 1.05;
 					vm.shapes.push_back(part);
 					//Part Number 4
 					part.type = CYLINDER;
-					part.params.cyl.radius = 3.0;
-					part.params.cyl.depth = 1.0;
+					part.params.cyl.radius = 0.4;
+					part.params.cyl.depth = 0.1;
 					part.params.cyl.isRolling = 0;
 					part.params.cyl.isSteering = 0;
-					part.rgb[0] = 1.0;
-					part.rgb[1] = 0.0;
+					part.rgb[0] = 0.0;
+					part.rgb[1] = 1.0;
 					part.rgb[2] = 0.0;
 					part.rotation = 0.0;
-					part.xyz[0] = 0.0;
-					part.xyz[1] = 15.0;
-					part.xyz[2] = 0.0;
+					part.xyz[0] = 1.05;
+					part.xyz[1] = 0.4;
+					part.xyz[2] = -1.05;
+					vm.shapes.push_back(part);
+					
+					part.type = CYLINDER;
+					part.params.cyl.radius = 0.8;
+					part.params.cyl.depth = 0.1;
+					part.params.cyl.isRolling = 0;
+					part.params.cyl.isSteering = 0;
+					part.rgb[0] = 0.0;
+					part.rgb[1] = 1.0;
+					part.rgb[2] = 0.0;
+					part.rotation = 0.0;
+					part.xyz[0] = -1.05;
+					part.xyz[1] = 0.8;
+					part.xyz[2] = 1.05;
+					vm.shapes.push_back(part);
+					//
+					part.type = CYLINDER;
+					part.params.cyl.radius = 0.8;
+					part.params.cyl.depth = 0.1;
+					part.params.cyl.isRolling = 0;
+					part.params.cyl.isSteering = 0;
+					part.rgb[0] = 0.0;
+					part.rgb[1] = 1.0;
+					part.rgb[2] = 0.0;
+					part.rotation = 0.0;
+					part.xyz[0] = -1.05;
+					part.xyz[1] = 0.8;
+					part.xyz[2] = -1.05;
 					vm.shapes.push_back(part);
 					//Part 5
 					part.type = TRAPEZOIDAL_PRISM;
-					part.params.trap.alen = 7;
-					part.params.trap.blen = 5;
-					part.params.trap.height = 4;
-					part.params.trap.aoff = 0;
-					part.params.trap.depth = 4;
+					part.params.trap.alen = 2;
+					part.params.trap.blen = 1.5;
+					part.params.trap.height = 0.5;
+					part.params.trap.aoff = 0.05;
+					part.params.trap.depth = 2;
 					part.rgb[0] = 1.0;
 					part.rgb[1] = 0.0;
-					part.rgb[2] = 0.0;
+					part.rgb[2] = 1.0;
 					part.rotation = 0.0;
 					part.xyz[0] = 0.0;
-					part.xyz[1] = 25.0;
+					part.xyz[1] = 1.4;
 					part.xyz[2] = 0.0;
 					vm.shapes.push_back(part);
-
-				//	myVehicle;
-
-
-
-
-
 					
 					//
 					// student code goes here
 					//
-					/*
-					ShapeInit comp1;
-					comp1.type = RECTANGULAR_PRISM;
-					comp1.xyz[0] = 0;
-					comp1.xyz[1] = 0;
-					comp1.xyz[2] = 0;
-					comp1.rgb[0] = 1.0;
-					comp1.rgb[1] = 1.0;
-					comp1.rgb[2] = 0.0;
-					comp1.rotation = 0;
-					comp1.params.rect.xlen = 3;
-					comp1.params.rect.ylen = 1;
-					comp1.params.rect.zlen = 2;
-					vm.shapes.push_back(comp1);
-					*/
-					/*ShapeInit comp2;
-					comp2.type = TRIANGULAR_PRISM;
-					comp2.xyz[0] = 0;
-					comp2.xyz[1] = 4;
-					comp2.xyz[2] = 0;
-					comp2.rgb[0] = 1;
-					comp2.rgb[1] = 0;
-					comp2.rgb[2] = 0;
-					comp2.params.tri.alen = 1;
-					comp2.params.tri.blen = 2;
-					comp2.params.tri.angle = ;
-					comp2.params.tri.depth = ;*/
 					
 					RemoteDataManager::Write(GetVehicleModelStr(vm));
 				}

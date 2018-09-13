@@ -1,5 +1,3 @@
-#pragma once
-
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
 #include <OpenGL/glu.h>
@@ -35,13 +33,15 @@
 #include "remotevehicle.hpp"
 
 
-remotevehicle::remotevehicle()
+
+Shape* shp;
+remotevehicle::remotevehicle() 
 {
 }
 
 remotevehicle::remotevehicle(VehicleModel Model)
 {
-	Shape* shp;
+	
 	shapes.clear();
 
 	for (std::vector<ShapeInit>::iterator iter = Model.shapes.begin(); iter != Model.shapes.end(); ++iter) {
@@ -69,6 +69,7 @@ remotevehicle::remotevehicle(VehicleModel Model)
 		}
 		shp->setColor(iter->rgb[0], iter->rgb[1], iter->rgb[2]);
 		shp->setPosition(iter->xyz[0], iter->xyz[1], iter->xyz[2]);
+		shp->setRotation(iter->rotation);
 		//std::cout << iter->params.rect.xlen << std::endl;
 		addShape(shp);
 
@@ -79,16 +80,19 @@ remotevehicle::remotevehicle(VehicleModel Model)
 
 void remotevehicle::draw()
 {
-	for (auto iter = shapes.begin(); iter != shapes.end(); ++iter) {
+	glPushMatrix();
+	positionInGL();
+	setColorInGL();
+	for (std::vector<Shape*>::iterator iter = shapes.begin(); iter != shapes.end(); ++iter) {
+		/*circle*cylinder = dynamic_cast<circle*>(*iter);
+		if (cylinder != nullptr) {
 
-		glPushMatrix();
-		positionInGL();
+		(*iter)->setRotation(getSteering());*/
 
-		//draw in local frame
+
 		(*iter)->draw();
-		//move back to global frame of reference
-		////cout << "speed is" << vehicleSpeed << endl;
-		glPopMatrix();
+		//}
 
 	}
+	glPopMatrix();
 }
