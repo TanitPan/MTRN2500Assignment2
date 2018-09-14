@@ -18,21 +18,12 @@ protected:
 
 public:
 	triangular();
-	triangular(double x, double y, double z, double theta);//, double r, double g, double b);
+	triangular(double x, double y, double z, double theta);
 
-	//virtual void draw() = 0;
+	
 	void draw();
 
-	/*double getX();
-	double getY();
-	double getZ();*/
 	
-	//void setX(double x_);
-	//void setY(double y_);
-	//void setZ(double z_);
-	/*double getRotation();
-	void setRotation(double rotation_);*/
-
 };
 
 #endif

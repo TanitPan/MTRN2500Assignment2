@@ -7,7 +7,7 @@
 #include "TriangularPrism.hpp"
 
 
-class mywheel : public cylindricalprism //, public TriangularPrism
+class mywheel : public cylindricalprism 
 {
 
 protected:
@@ -22,7 +22,7 @@ public:
 	void draw();
 	void setRolling(double _rolling);
 	double getRolling() { return rolling; }
-	void drawCross(float xlength, float ylength, float zlength);
+	 void drawCross(float xl, float yl, float zl);
 };
 
 #endif

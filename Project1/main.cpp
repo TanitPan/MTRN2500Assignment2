@@ -44,6 +44,7 @@
 #include "trapezoidalprism.hpp"
 #include "myVehicle.hpp"
 #include "remotevehicle.hpp"
+#define PI 3.14159265358979323846
 //cylindricalprism C(0,30,50, 1, 0, 0, 50);
 
 
@@ -216,7 +217,7 @@ void display() {
 	T.draw();
 	trapezoidalprism.draw();
 	C.draw();*/
-	//mydraw();
+	mydraw();
 	
 	
 	glutSwapBuffers();
@@ -321,7 +322,7 @@ void idle() {
 				otherVehicles.clear();
 
 				// uncomment this line to connect to the robotics server.
-				RemoteDataManager::Connect("www.robotics.unsw.edu.au","18081");
+				//RemoteDataManager::Connect("www.robotics.unsw.edu.au","18081");
 
 				// on connect, let's tell the server what we look like
 				if (RemoteDataManager::IsConnected()) {
@@ -332,6 +333,7 @@ void idle() {
 				
 		
 					ShapeInit part;
+					
 					
 					//Part number 1
 					part.type = RECTANGULAR_PRISM;
@@ -637,23 +639,23 @@ void mydraw()
 	//trapezoidalprism.draw();
 	//C.draw();*/
 	rectangularprism R1(10, 20, 30);
-	triangular T1(20, 50, 30, 90);
+	triangular T1(20, 50, 30,90*PI/180);
 	trapezoidalprism TP1(40, 20, 10, 0, 20);
 	cylindricalprism C1(50, 100, 1);
 	
 	//glColor3d(1, 1, 0);
-	glTranslated(30,0,20);
-	R1.draw();
+	/*glTranslated(30,0,20);
+	R1.draw();*/
 	//glTranslated(40, 0, 50);
 	//glColor3d(1,1,0);
 	//C1.draw();
 	glTranslated(-30, 0, 60);
 	glColor3d(0, 1, 0.8);
 	T1.draw();
-	glTranslated(60, 0, 17);
+	/*glTranslated(60, 0, 17);
 	glColor3d(0, 1, 0);
 	
-	TP1.draw();
+	TP1.draw();*/
 	
 
 

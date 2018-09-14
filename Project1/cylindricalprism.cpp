@@ -20,7 +20,7 @@ cylindricalprism::cylindricalprism(double radius, double depth, double wheel)
 }
 
 
-double spinspeed;
+//double spinspeed;
 
 void cylindricalprism::draw()
 {
@@ -31,12 +31,12 @@ void cylindricalprism::draw()
 	positionInGL();
 	setColorInGL();
 
-	if (wheel != 0) {
-		//spinspeed += (PI*turning) / radius;
-		glRotatef(-rotation, 0, 1, 0);
-		std::cout << rotation << std::endl;
-		//glRotatef(-spinspeed, 0, 0, 1);
-	}
+	//if (wheel != 0) {
+	//	//spinspeed += (PI*turning) / radius;
+	//	glRotatef(-rotation, 0, 1, 0);
+	//	std::cout << rotation << std::endl;
+	//	//glRotatef(-spinspeed, 0, 0, 1);
+	//}
 
 	
 

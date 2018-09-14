@@ -31,6 +31,7 @@
 #include "Shape.hpp"
 
 #include "remotevehicle.hpp"
+#include "mywheel.hpp"
 
 
 
@@ -47,7 +48,7 @@ remotevehicle::remotevehicle(VehicleModel Model)
 	for (std::vector<ShapeInit>::iterator iter = Model.shapes.begin(); iter != Model.shapes.end(); ++iter) {
 		switch (iter->type) {
 		case CYLINDER:
-			shp = new cylindricalprism(iter->params.cyl.radius, iter->params.cyl.depth, iter->params.cyl.isSteering);
+			shp = new mywheel(iter->params.cyl.radius, iter->params.cyl.depth, iter->params.cyl.isSteering, iter->params.cyl.isRolling);
 			if (iter->params.cyl.isSteering == 1) {
 				shp->setRotation(getSteering());
 			}
@@ -70,6 +71,7 @@ remotevehicle::remotevehicle(VehicleModel Model)
 		shp->setColor(iter->rgb[0], iter->rgb[1], iter->rgb[2]);
 		shp->setPosition(iter->xyz[0], iter->xyz[1], iter->xyz[2]);
 		shp->setRotation(iter->rotation);
+		//shp->(iter->rotation);
 		//std::cout << iter->params.rect.xlen << std::endl;
 		addShape(shp);
 
@@ -84,15 +86,42 @@ void remotevehicle::draw()
 	positionInGL();
 	setColorInGL();
 	for (std::vector<Shape*>::iterator iter = shapes.begin(); iter != shapes.end(); ++iter) {
-		/*cylindricalprism*cylinder = dynamic_cast<cylindricalprism*>(*iter);
+		mywheel*cylinder = dynamic_cast<mywheel*>(*iter);
 		if (cylinder != nullptr) {
+			if (cylinder->getSteering() == 1) {
+				(*iter)->setRotation(getSteering());
+			}
+			/*if ((*iter)->params.cyl.isRolling == 1) {
+			shp->setTurning(getSpeed());
+			}
+			(*iter)->setRotation(getSteering());
+			*/
+			if (cylinder->getTurning() == 1) {
+				double current = cylinder->getRolling();
+				current += getSpeed()*3.141 / cylinder->getRadius();
+				cylinder->setRolling(current);
+			}
 
-		(*iter)->setRotation(getSteering());*/
-
+			//}
+		}
 
 		(*iter)->draw();
-		//}
-
 	}
+
 	glPopMatrix();
+	//glPushMatrix();
+	//positionInGL();
+	//setColorInGL();
+	//for (std::vector<Shape*>::iterator iter = shapes.begin(); iter != shapes.end(); ++iter) {
+	//	/*cylindricalprism*cylinder = dynamic_cast<cylindricalprism*>(*iter);
+	//	if (cylinder != nullptr) {
+
+	//	(*iter)->setRotation(getSteering());*/
+
+
+	//	(*iter)->draw();
+	//	//}
+
+	//}
+	//glPopMatrix();
 }
