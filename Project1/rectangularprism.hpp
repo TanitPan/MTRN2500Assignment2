@@ -1,11 +1,11 @@
-#ifndef MTRN3500_RECTANGLE_H
-#define MTRN3500_RECTANGLE_H
+#ifndef MTRN3500_RECTANGULARPRISM_H
+#define MTRN3500_RECTANGULARPRISM_H
 
 #include <iostream>
 #include "Shape.hpp"
 
 
-class rectangle :public Shape
+class rectangularprism :public Shape
 {
 protected:
 	double lx, ly, lz;               // dimension length
@@ -14,8 +14,8 @@ protected:
 
 
 public:
-	rectangle();
-	rectangle(double x, double y, double z);//, double rotation, double r, double g, double b);
+	rectangularprism();
+	rectangularprism(double x, double y, double z);//, double rotation, double r, double g, double b);
 	//virtual void draw() = 0;
 	virtual void draw();
 	double getX();

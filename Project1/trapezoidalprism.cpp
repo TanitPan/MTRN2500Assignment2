@@ -1,21 +1,22 @@
-#include "Tp.hpp"
-#include <GL/glut.h>
+#include "trapezoidalprism.hpp"
 #include <math.h>
+#include <GL/glut.h>
 
-tp::tp():Shape()
+
+trapezoidalprism::trapezoidalprism(): Shape()
 {
 }
 
-tp::tp(double x, double y, double z, double off, double d)
+trapezoidalprism::trapezoidalprism(double alen, double blen, double height, double aoff, double depth)
 {
-	this->a = x;
-	this->b = y;
-	this->h = z;
-	this->off = off;
-	this->d = d;
+	this->a = alen;
+	this->b = blen;
+	this->h = height;
+	this->off = aoff;
+	this->d = depth;
 }
 
-//tp::tp(double x, double y, double z, double off, double d);
+//trapezoidalprism::trapezoidalprism(double x, double y, double z, double off, double d);
 //{
 //	this->a = x;
 //	this->b = y;
@@ -32,7 +33,7 @@ tp::tp(double x, double y, double z, double off, double d)
 //
 //}
 
-void tp::draw()
+void trapezoidalprism::draw()
 {
 	glPushMatrix();
 	positionInGL();
@@ -100,17 +101,17 @@ void tp::draw()
 	glPopMatrix();
 }
 
-double tp::getX()
+double trapezoidalprism::getX()
 {
 	return x;
 }
 
-double tp::getY()
+double trapezoidalprism::getY()
 {
 	return y;
 }
 
-double tp::getZ()
+double trapezoidalprism::getZ()
 {
 	return z;
 }

@@ -1,9 +1,9 @@
 
 #include "Vehicle.hpp"
-#include "rectangle.hpp"
-#include "Tp.hpp"
+#include "rectangularprism.hpp"
+#include "trapezoidalprism.hpp"
 #include "TriangularPrism.hpp"
-#include "circle.hpp"
+#include "cylindricalprism.hpp"
 
 #include <windows.h>
 #include <gl/gl.h>
@@ -64,7 +64,7 @@ void Vehicle::addShape(Shape * shape)
 //{
 //	glPushMatrix();
 //	glTranslated(0, 0.4, 0);
-//	rectangle R(3, 1.0, 2, 0, 0, 0.6, 0);
+//	rectangularprism R(3, 1.0, 2, 0, 0, 0.6, 0);
 //	R.draw();
 //	glPopMatrix();
 //

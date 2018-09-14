@@ -1,4 +1,4 @@
-#include "circle.hpp"
+#include "cylindricalprism.hpp"
 #include <GL/glut.h>
 #include <math.h>
 #include "Vehicle.hpp"
@@ -6,12 +6,12 @@
 #include "myVehicle.hpp"
 #define PI 3.14159265358979323846
 
-circle::circle():Shape()
+cylindricalprism::cylindricalprism():Shape()
 {
 
 }
 
-circle::circle(double radius, double depth, double wheel)
+cylindricalprism::cylindricalprism(double radius, double depth, double wheel)
 {
 	this->radius = radius;
 	this->depth = depth;
@@ -22,7 +22,7 @@ circle::circle(double radius, double depth, double wheel)
 
 double spinspeed;
 
-void circle::draw()
+void cylindricalprism::draw()
 {
 	
 	//glTranslated(x, y, z);
@@ -52,7 +52,7 @@ void circle::draw()
 	glEnd();
 }
 //
-//void circle::move(double x, double y)
+//void cylindricalprism::move(double x, double y)
 //{
 //	Shape::move(x, y);
 //}

@@ -22,15 +22,16 @@
 
 #include "myVehicle.hpp"
 #include <windows.h>
-#include "rectangle.hpp"
-#include "circle.hpp"
+#include "rectangularprism.hpp"
+#include "cylindricalprism.hpp"
 #include "TriangularPrism.hpp"
-#include "Tp.hpp"
+#include "trapezoidalprism.hpp"
 #include <vector>
 #include "Messages.hpp"
 #include <iostream>
 #include "Vehicle.hpp"
 #include "Shape.hpp"
+#include "mywheel.hpp"
 //VehicleModel Model;
 
 //using namespace std;
@@ -39,27 +40,27 @@ myVehicle::myVehicle()
 	Shape* shp;
 	
 
-	shp = new rectangle(3, 1, 2);
+	shp = new rectangularprism(3, 1, 2);
 	shp->setColor(0, 0, 1);
 	shp->setPosition(0, 0.4, 0);
 	shapes.push_back(shp);
 
-	shp = new circle(0.4, 0.1, 1); //FL wheel
+	shp = new cylindricalprism(0.4, 0.1, 1); //FL wheel
 	shp->setPosition(1.05, 0.4, 1.05);
 	shp->setColor(0, 1, 0);
 	shapes.push_back(shp);
 
-	shp = new circle(0.4, 0.1, 1); //FR wheel
+	shp = new cylindricalprism(0.4, 0.1, 1); //FR wheel
 	shp->setPosition(1.05, 0.4, -1.05);
 	shp->setColor(0, 1, 0);
 	shapes.push_back(shp);
 
-	shp = new circle(0.8, 0.1, 1); //BL wheel
+	shp = new cylindricalprism(0.8, 0.1, 1); //BL wheel
 	shp->setPosition(-1.05, 0.8, 1.05);
 	shp->setColor(0, 1, 0);
 	shapes.push_back(shp);
 
-	shp = new circle(0.8, 0.1, 1); //BR wheel
+	shp = new cylindricalprism(0.8, 0.1, 1); //BR wheel
 	shp->setPosition(-1.05, 0.8, -1.05);
 	shp->setColor(0, 1, 0);
 	shapes.push_back(shp);
@@ -76,7 +77,7 @@ myVehicle::myVehicle()
 	//shp->setRotation(90);
 	//shapes.push_back(shp);
 
-	shp = new tp(2, 1.5, 0.5, 0.05, 2);
+	shp = new trapezoidalprism(2, 1.5, 0.5, 0.05, 2);
 	shp->setPosition(0, 1.4, 0);
 	shp->setColor(1,0,1);
 	shapes.push_back(shp);
@@ -164,21 +165,28 @@ void myVehicle::draw()
 	positionInGL();
 	setColorInGL();
 	for (std::vector<Shape*>::iterator iter = shapes.begin(); iter != shapes.end(); ++iter) {
-		/*circle*cylinder = dynamic_cast<circle*>(*iter);
+		mywheel*cylinder = dynamic_cast<mywheel*>(*iter);
 		if (cylinder != nullptr) {
-			if (cylinder->getSteering() ==1) {
+			if (cylinder->getSteering() == 1) {
 				(*iter)->setRotation(getSteering());
-			}*/
+			}
 			/*if ((*iter)->params.cyl.isRolling == 1) {
 				shp->setTurning(getSpeed());
 			}
 				(*iter)->setRotation(getSteering());
 */
+			if (cylinder->getTurning() == 1) {
+				double current = cylinder->getRolling();
+				current += getSpeed()*3.141 / cylinder->getRadius();
+				cylinder->setRolling(current);
+			}
 
-				(*iter)->draw();
-		//}
-		
+			//}
+		}
+
+		(*iter)->draw();
 	}
+
 	glPopMatrix();
 	//std::cout <<x <<"  " << y << "  " <<z << std::endl;
 	/*
@@ -188,7 +196,7 @@ void myVehicle::draw()
 	
 		glTranslated(0, 0.4, 0);
 		glColor3d(0, 0.6, 0);
-		rectangle R(3, 1.0, 2);
+		rectangularprism R(3, 1.0, 2);
 		R.draw();
 		//glTranslated(0, -0.4, 0);
 		glPopMatrix();
@@ -197,7 +205,7 @@ void myVehicle::draw()
 		positionInGL();
 		glTranslated(1.1, 0.4, 1.1);
 		glColor3f(1, 0, 0); 
-		circle SWheel(0.4, 0.1, 1);
+		cylindricalprism SWheel(0.4, 0.1, 1);
 		SWheel.draw();
 		glPopMatrix();
 
@@ -212,7 +220,7 @@ void myVehicle::draw()
 		positionInGL();
 		glTranslated(-1.1, 0.8, 1.1);
 		glColor3f(0, 0, 1);
-		circle LWheel(0.8, 0.1, 1);
+		cylindricalprism LWheel(0.8, 0.1, 1);
 		LWheel.draw();
 		glPopMatrix();
 
@@ -226,7 +234,7 @@ void myVehicle::draw()
 		glPushMatrix();
 		positionInGL();
 		glTranslated(0, 1.4, 0);
-		tp Trap(3, 1, 1, 0.785, 0, 0, 1);
+		trapezoidalprism Trap(3, 1, 1, 0.785, 0, 0, 1);
 		Trap.draw();
 		glPopMatrix();
 
@@ -269,7 +277,7 @@ shape* shp1 = new trapezoidalprism(7,5,4,4,1);
 	//for (std::vector<ShapeInit>::iterator iter = Model.shapes.begin(); iter != Model.shapes.end(); ++iter) {
 	//	switch (iter->type) {
 	//		case CYLINDER:
-	//			shp = new circle(iter->params.cyl.radius, iter->params.cyl.depth, iter->params.cyl.isSteering);
+	//			shp = new cylindricalprism(iter->params.cyl.radius, iter->params.cyl.depth, iter->params.cyl.isSteering);
 	//			if (iter->params.cyl.isSteering == 1) {
 	//				shp->setRotation(getSteering());
 	//			}
@@ -278,7 +286,7 @@ shape* shp1 = new trapezoidalprism(7,5,4,4,1);
 	//			}
 	//		break;
 	//	case RECTANGULAR_PRISM:
-	//		shp = new rectangle(iter->params.rect.xlen, iter->params.rect.ylen, iter->params.rect.zlen);
+	//		shp = new rectangularprism(iter->params.rect.xlen, iter->params.rect.ylen, iter->params.rect.zlen);
 	//		
 	//		break;
 	//		case TRIANGULAR_PRISM:

@@ -1,23 +1,28 @@
 #ifndef MTRN3500_MYWHEEL_H
 #define MTRN3500_MYWHEEL_H
+
 #include <iostream>
 #include "Shape.hpp"
-#include "circle.hpp"
+#include "cylindricalprism.hpp"
 #include "TriangularPrism.hpp"
 
-class wheel : public circle,  public triangular
+
+class mywheel : public cylindricalprism //, public TriangularPrism
 {
+
 protected:
-	
-	bool steer;
-	bool roll;
-
-public: 
-
-	
-	wheel();
-	wheel(double radius, double depth, double steering_, double rolling);
+	bool steering;
+	bool turning;
+	double rolling;
+public:
+	mywheel();
+	mywheel(double radius, double depth, bool steer_, bool turn_);
+	bool getSteering() { return steering; }
+	bool getTurning() { return turning; }
 	void draw();
-
+	void setRolling(double _rolling);
+	double getRolling() { return rolling; }
+	void drawCross(float xlength, float ylength, float zlength);
 };
+
 #endif

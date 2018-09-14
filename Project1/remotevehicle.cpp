@@ -20,10 +20,10 @@
 
 #include "myVehicle.hpp"
 #include <windows.h>
-#include "rectangle.hpp"
-#include "circle.hpp"
+#include "rectangularprism.hpp"
+#include "cylindricalprism.hpp"
 #include "TriangularPrism.hpp"
-#include "Tp.hpp"
+#include "trapezoidalprism.hpp"
 #include <vector>
 #include "Messages.hpp"
 #include <iostream>
@@ -47,7 +47,7 @@ remotevehicle::remotevehicle(VehicleModel Model)
 	for (std::vector<ShapeInit>::iterator iter = Model.shapes.begin(); iter != Model.shapes.end(); ++iter) {
 		switch (iter->type) {
 		case CYLINDER:
-			shp = new circle(iter->params.cyl.radius, iter->params.cyl.depth, iter->params.cyl.isSteering);
+			shp = new cylindricalprism(iter->params.cyl.radius, iter->params.cyl.depth, iter->params.cyl.isSteering);
 			if (iter->params.cyl.isSteering == 1) {
 				shp->setRotation(getSteering());
 			}
@@ -56,7 +56,7 @@ remotevehicle::remotevehicle(VehicleModel Model)
 			}
 			break;
 		case RECTANGULAR_PRISM:
-			shp = new rectangle(iter->params.rect.xlen, iter->params.rect.ylen, iter->params.rect.zlen);
+			shp = new rectangularprism(iter->params.rect.xlen, iter->params.rect.ylen, iter->params.rect.zlen);
 
 			break;
 		case TRIANGULAR_PRISM:
@@ -64,7 +64,7 @@ remotevehicle::remotevehicle(VehicleModel Model)
 
 			break;
 		case TRAPEZOIDAL_PRISM:
-			shp = new tp(iter->params.trap.alen, iter->params.trap.blen, iter->params.trap.height, iter->params.trap.aoff, iter->params.trap.depth);
+			shp = new trapezoidalprism(iter->params.trap.alen, iter->params.trap.blen, iter->params.trap.height, iter->params.trap.aoff, iter->params.trap.depth);
 			break;
 		}
 		shp->setColor(iter->rgb[0], iter->rgb[1], iter->rgb[2]);
@@ -84,7 +84,7 @@ void remotevehicle::draw()
 	positionInGL();
 	setColorInGL();
 	for (std::vector<Shape*>::iterator iter = shapes.begin(); iter != shapes.end(); ++iter) {
-		/*circle*cylinder = dynamic_cast<circle*>(*iter);
+		/*cylindricalprism*cylinder = dynamic_cast<cylindricalprism*>(*iter);
 		if (cylinder != nullptr) {
 
 		(*iter)->setRotation(getSteering());*/

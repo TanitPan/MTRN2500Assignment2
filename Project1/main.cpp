@@ -38,13 +38,13 @@
 #include "Messages.hpp"
 #include "HUD.hpp"
 #include "ObstacleManager.hpp"
-#include "rectangle.hpp"
-#include "circle.hpp"
+#include "rectangularprism.hpp"
+#include "cylindricalprism.hpp"
 #include "TriangularPrism.hpp"
-#include "Tp.hpp"
+#include "trapezoidalprism.hpp"
 #include "myVehicle.hpp"
 #include "remotevehicle.hpp"
-//circle C(0,30,50, 1, 0, 0, 50);
+//cylindricalprism C(0,30,50, 1, 0, 0, 50);
 
 
 
@@ -61,7 +61,7 @@ void mouse(int button, int state, int x, int y);
 void dragged(int x, int y);
 void motion(int x, int y);
 void mydraw();
-//void rectangle(double x, double y, double z, double r, double g, double b);
+//void rectangularprism(double x, double y, double z, double r, double g, double b);
 
 
 
@@ -90,7 +90,7 @@ int frameCounter = 0;
 //int _tmain(int argc, _TCHAR* argv[]) {
 int main(int argc, char ** argv) {
 
-	//rectangle R(1000, 1600, 500, 1, 0, 0);
+	//rectangularprism R(1000, 1600, 500, 1, 0, 0);
 	const int WINDOW_WIDTH = 800;
 	const int WINDOW_HEIGHT = 600;
 
@@ -199,7 +199,7 @@ void display() {
 
 	// draw my vehicle
 	if (vehicle != NULL) {
-//		vehicle->draw();
+		vehicle->draw();
 
 	}
 
@@ -214,7 +214,7 @@ void display() {
 	//C.draw();
 	/*R.draw();
 	T.draw();
-	TP.draw();
+	trapezoidalprism.draw();
 	C.draw();*/
 	//mydraw();
 	
@@ -628,18 +628,18 @@ void motion(int x, int y) {
 void mydraw()
 {
 	
-	///*rectangle R(10.0, 16.0, 5.0, 2.0, 0, 0, 1);
+	///*rectangularprism R(10.0, 16.0, 5.0, 2.0, 0, 0, 1);
 	//triangular T(30.0, 30.0, 30.0, 0.5, 1, 0, 0);
-	//tp TP(30.0, 15.0, 50.0, 0.642, 0, 1, 0);
-	//circle C(15, 15, 10, 100, 10, 0, 15, 10);
+	//trapezoidalprism trapezoidalprism(30.0, 15.0, 50.0, 0.642, 0, 1, 0);
+	//cylindricalprism C(15, 15, 10, 100, 10, 0, 15, 10);
 	//R.draw();
 	//T.draw();
-	//TP.draw();
+	//trapezoidalprism.draw();
 	//C.draw();*/
-	rectangle R1(10, 20, 30);
+	rectangularprism R1(10, 20, 30);
 	triangular T1(20, 50, 30, 90);
-	tp TP1(40, 20, 10, 0, 20);
-	circle C1(50, 100, 1);
+	trapezoidalprism TP1(40, 20, 10, 0, 20);
+	cylindricalprism C1(50, 100, 1);
 	
 	//glColor3d(1, 1, 0);
 	glTranslated(30,0,20);

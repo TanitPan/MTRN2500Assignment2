@@ -1,11 +1,11 @@
-#ifndef MTRN3500_TP_H
-#define MTRN3500_TP_H
+#ifndef MTRN3500_TRAPEZOIDALPRISM_H
+#define MTRN3500_TRAPEZOIDALPRISM_H
 
 #include <iostream>
 #include "Shape.hpp"
+//#include <GL/glut.h>
 
-
-class tp :public Shape
+class trapezoidalprism :public Shape
 {
 protected:
 	double x, y, z;               // position
@@ -16,8 +16,8 @@ protected:
 	double h;
 	double off;
 public:
-	tp();
-	tp(double x, double y, double z, double off, double d);
+	trapezoidalprism();
+	trapezoidalprism(double alen, double blen, double height, double off, double d);
 
 	//virtual void draw() = 0;
 	void draw();

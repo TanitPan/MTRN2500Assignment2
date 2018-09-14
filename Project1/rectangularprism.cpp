@@ -1,13 +1,13 @@
-#include "rectangle.hpp"
+#include "rectangularprism.hpp"
 #include <GL/glut.h>
 #include <math.h>
 
-rectangle::rectangle() : Shape()
+rectangularprism::rectangularprism() : Shape()
 {
 
 }
 
-//rectangle::rectangle(double x, double y, double z);// , double rotation, double red_, double green_, double blue_) //: Shape(x, y, z, rotation)
+//rectangularprism::rectangularprism(double x, double y, double z);// , double rotation, double red_, double green_, double blue_) //: Shape(x, y, z, rotation)
 //{
 //	
 //	//setColor(red_, green_, blue_);
@@ -22,14 +22,14 @@ rectangle::rectangle() : Shape()
 //
 //}
 
-rectangle::rectangle(double x, double y, double z)
+rectangularprism::rectangularprism(double x, double y, double z)
 {
 	this->lx = x;
 	this->ly = y;
 	this->lz = z;
 }
 
-void rectangle::draw()
+void rectangularprism::draw()
 {
 
 	
@@ -102,36 +102,36 @@ glPushMatrix();
 }
 
 
-double rectangle::getX() {
+double rectangularprism::getX() {
 	return lx;
  }
 
-double rectangle::getY() {
+double rectangularprism::getY() {
 	return ly;
 }
 
-double rectangle::getZ() {
+double rectangularprism::getZ() {
 	return lz;
 }
 
 //
-//void rectangle::setX(double x_) {
+//void rectangularprism::setX(double x_) {
 //	x = x_;
 //}
 //
-//void rectangle::setY(double y_) {
+//void rectangularprism::setY(double y_) {
 //	y = y_;
 //}
 //
-//void rectangle::setZ(double z_) {
+//void rectangularprism::setZ(double z_) {
 //	z = z_;
 //}
-//double rectangle::getRotation()
+//double rectangularprism::getRotation()
 //{
 //	return rotation;
 //}
 //
-//void rectangle::setRotation(double rotation_)
+//void rectangularprism::setRotation(double rotation_)
 //{
 //	rotation = rotation_;
 //}

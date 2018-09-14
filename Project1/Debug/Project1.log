@@ -1,3 +1,2 @@
-﻿  main.cpp
-d:\mtrn2500assignment2\project1\main.cpp(154): warning C4018: '<': signed/unsigned mismatch
-  Project1.vcxproj -> D:\MTRN2500Assignment2\Debug\Project1.exe
+﻿  myVehicle.cpp
+  Project1.vcxproj -> D:\MTRN2500\Project1\Debug\Project1.exe
