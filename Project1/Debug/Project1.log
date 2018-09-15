@@ -1,2 +1,10 @@
-﻿  myVehicle.cpp
+﻿  Vehicle.cpp
+d:\mtrn2500\project1\project1\vehicle.cpp(22): warning C4018: '<': signed/unsigned mismatch
+  cylindricalprism.cpp
+  main.cpp
+d:\mtrn2500\project1\project1\main.cpp(154): warning C4018: '<': signed/unsigned mismatch
+  myVehicle.cpp
+  mywheel.cpp
+  remotevehicle.cpp
+  Generating Code...
   Project1.vcxproj -> D:\MTRN2500\Project1\Debug\Project1.exe

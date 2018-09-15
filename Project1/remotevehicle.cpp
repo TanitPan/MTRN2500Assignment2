@@ -47,13 +47,13 @@ remotevehicle::remotevehicle(VehicleModel Model)
 	for (std::vector<ShapeInit>::iterator iter = Model.shapes.begin(); iter != Model.shapes.end(); ++iter) {
 		switch (iter->type) {
 		case CYLINDER:
-			shp = new cylindricalprism(iter->params.cyl.radius, iter->params.cyl.depth, iter->params.cyl.isSteering);
-			if (iter->params.cyl.isSteering == 1) {
+			shp = new cylindricalprism(iter->params.cyl.radius, iter->params.cyl.depth, iter->params.cyl.isSteering, iter->params.cyl.isRolling);
+			/*if (iter->params.cyl.isSteering == 1) {
 				shp->setRotation(getSteering());
 			}
 			if (iter->params.cyl.isRolling == 1) {
 				shp->setTurning(getSpeed());
-			}
+			}*/
 			break;
 		case RECTANGULAR_PRISM:
 			shp = new rectangularprism(iter->params.rect.xlen, iter->params.rect.ylen, iter->params.rect.zlen);

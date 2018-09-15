@@ -27,14 +27,14 @@ public:
 	double wheel;
 	cylindricalprism();
 	//cylinder(double bRadius, double tRadius, double height, int slices, int stack, double InRadius, double OutRadius, int loop);
-	cylindricalprism(double radius, double depth, double wheel);
+	cylindricalprism(double radius, double depth, bool steer_, bool roll_);
 	/*double getRadius();
 	void setRadius(double radius);*/
 	virtual void draw();
 	bool steering;
 	bool rolling;
-	bool getSteering() { return steering; }
-	double getRadius() { return bRadius; }
+	//bool getSteering() { return steering; } //not needed
+	double getRadius() { return radius; }
 	//void move(double x, double y); //inherited move is sufficient - see definition
 //	bool steering;
 //	bool rolling; 

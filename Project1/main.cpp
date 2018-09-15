@@ -378,8 +378,8 @@ void idle() {
 					part.type = CYLINDER;
 					part.params.cyl.radius = 0.4;
 					part.params.cyl.depth = 0.1;
-					part.params.cyl.isRolling = 0;
-					part.params.cyl.isSteering = 0;
+					part.params.cyl.isRolling = 1;
+					part.params.cyl.isSteering = 1;
 					part.rgb[0] = 0.0;
 					part.rgb[1] = 1.0;
 					part.rgb[2] = 0.0;
@@ -392,7 +392,7 @@ void idle() {
 					part.type = CYLINDER;
 					part.params.cyl.radius = 0.8;
 					part.params.cyl.depth = 0.1;
-					part.params.cyl.isRolling = 0;
+					part.params.cyl.isRolling = 1;
 					part.params.cyl.isSteering = 0;
 					part.rgb[0] = 0.0;
 					part.rgb[1] = 1.0;
@@ -406,7 +406,7 @@ void idle() {
 					part.type = CYLINDER;
 					part.params.cyl.radius = 0.8;
 					part.params.cyl.depth = 0.1;
-					part.params.cyl.isRolling = 0;
+					part.params.cyl.isRolling = 1;
 					part.params.cyl.isSteering = 0;
 					part.rgb[0] = 0.0;
 					part.rgb[1] = 1.0;
@@ -639,7 +639,7 @@ void mydraw()
 	rectangularprism R1(10, 20, 30);
 	triangular T1(20, 50, 30, 90);
 	trapezoidalprism TP1(40, 20, 10, 0, 20);
-	cylindricalprism C1(50, 100, 1);
+	cylindricalprism C1(50, 100, 0,0);
 	
 	//glColor3d(1, 1, 0);
 	glTranslated(30,0,20);

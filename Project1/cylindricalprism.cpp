@@ -11,11 +11,13 @@ cylindricalprism::cylindricalprism():Shape()
 
 }
 
-cylindricalprism::cylindricalprism(double radius, double depth, double wheel)
+cylindricalprism::cylindricalprism(double radius, double depth, bool steer_, bool roll_)
 {
 	this->radius = radius;
 	this->depth = depth;
-	this->wheel = wheel;
+	//this->wheel = wheel;
+	this->steering = steer_;
+	this->rolling = roll_;
 
 }
 

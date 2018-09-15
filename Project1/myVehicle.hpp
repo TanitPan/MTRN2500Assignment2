@@ -33,9 +33,9 @@ public:
 	static const int MAX_RIGHT_STEERING_DEGS = -15;
 	static const int VEHICLE_BOUNDS = 3;
 
-	double getSpeed() const { return speed; }
+	/*double getSpeed() const { return speed; }
 	double getSteering() const { return steering; }
-
+*/
 
 //	void addShape(Shape * shape);
 

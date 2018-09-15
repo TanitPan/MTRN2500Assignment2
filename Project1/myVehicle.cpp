@@ -41,26 +41,26 @@ myVehicle::myVehicle()
 	
 
 	shp = new rectangularprism(3, 1, 2);
-	shp->setColor(0, 0, 1);
+	shp->setColor(1, 0, 0);
 	shp->setPosition(0, 0.4, 0);
 	shapes.push_back(shp);
 
-	shp = new cylindricalprism(0.4, 0.1, 1); //FL wheel
+	shp = new mywheel(0.4, 0.1, 1,1); //FL wheel
 	shp->setPosition(1.05, 0.4, 1.05);
 	shp->setColor(0, 1, 0);
 	shapes.push_back(shp);
 
-	shp = new cylindricalprism(0.4, 0.1, 1); //FR wheel
+	shp = new mywheel(0.4, 0.1, 1, 1); //FR wheel
 	shp->setPosition(1.05, 0.4, -1.05);
 	shp->setColor(0, 1, 0);
 	shapes.push_back(shp);
 
-	shp = new cylindricalprism(0.8, 0.1, 1); //BL wheel
+	shp = new mywheel(0.8, 0.1,0, 1); //BL wheel
 	shp->setPosition(-1.05, 0.8, 1.05);
 	shp->setColor(0, 1, 0);
 	shapes.push_back(shp);
 
-	shp = new cylindricalprism(0.8, 0.1, 1); //BR wheel
+	shp = new mywheel(0.8, 0.1, 0, 1); //BR wheel
 	shp->setPosition(-1.05, 0.8, -1.05);
 	shp->setColor(0, 1, 0);
 	shapes.push_back(shp);
