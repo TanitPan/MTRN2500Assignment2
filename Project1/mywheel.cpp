@@ -39,7 +39,7 @@ void mywheel::drawCross(float xl, float yl, float zl) {
 
 	positionInGL();
 
-	glTranslated(0, 0, depth/2);
+	glTranslated(0, radius, depth/2);
 	if (rolling != 0) {
 		glRotated(-rolling, 0, 0, 1);
 	}

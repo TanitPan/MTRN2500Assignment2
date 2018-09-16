@@ -26,32 +26,36 @@ void triangular::draw()
 	glVertex3d(a / 2, 0, -d / 2);								 
 	glVertex3d(-a / 2 + b * cos(theta), b*sin(theta), -d / 2);
 	glVertex3d(-a / 2, 0, -d / 2); 
-
+	glEnd();
 
 	//Back side 
+	glBegin(GL_TRIANGLES);
 	glVertex3d(-a/2,0,d/2);
 	glVertex3d(a/2,0,d/2);
 	glVertex3d(-a/2+b*cos(theta),b*sin(theta),d/2);
 
 	glEnd();
 
-	glBegin(GL_QUADS);
+	
 	
 	//Bottom face    
-	
+	glBegin(GL_QUADS);
 	glVertex3d(-a/2, 0, d/2);
 	glVertex3d(-a/2, 0, -d/2);
 	glVertex3d(a/2,0, -d/2);
 	glVertex3d(a/2, 0, d/2);
-		
+	glEnd();
 
 	// Left side
+	glBegin(GL_QUADS);
 	glVertex3d(-a/2, 0,d/2);
 	glVertex3d(-a/2, 0, -d/2);
 	glVertex3d(-a/2 + b*cos(theta),b*sin(theta),-d/2 );
 	glVertex3d(-a/2 + b*cos(theta),b*sin(theta),d/2);
+	glEnd();
 
 	// Right side
+	glBegin(GL_QUADS);
 	glVertex3d(-a/2+b*cos(theta), b*sin(theta), d/2);
 	glVertex3d(-a/2+b*cos(theta), b*sin(theta), -d / 2);
 	glVertex3d(a/2,0,-d/2);

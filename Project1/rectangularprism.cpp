@@ -33,37 +33,41 @@ glPushMatrix();
 	glVertex3d(-getX() / 2, getY(), -getZ() / 2);
 	glVertex3d(getX() / 2, getY(), -getZ() / 2);
 	glVertex3d(getX() / 2, getY(), getZ() / 2);
-	
+	glEnd();
 
+	glBegin(GL_QUADS);
 	// Bottom face
 	glVertex3d(-getX() / 2, 0, getZ() / 2);
 	glVertex3d(getX() / 2, 0, getZ() / 2);
 	glVertex3d(getX() / 2, 0, -getZ() / 2);
 	glVertex3d(-getX() / 2, 0, -getZ() / 2);
-
+	glEnd();
 	
-	
+	glBegin(GL_QUADS);
 	// Front face 
 	glVertex3d(getX() / 2, getY(), -getZ() / 2);
 	glVertex3d(-getX() / 2, getY(), -getZ() / 2);
 	glVertex3d(-getX() / 2, 0, -getZ() / 2);
 	glVertex3d(getX() / 2, 0,- getZ() / 2);
-	
+	glEnd();
 
-	
+	glBegin(GL_QUADS);
 	// Back face 
 	glVertex3d(-getX() / 2, 0, getZ() / 2);
 	glVertex3d(-getX() / 2, getY(), getZ() / 2);
 	glVertex3d(getX() / 2, getY(), getZ() / 2);
 	glVertex3d(getX() / 2, 0, getZ() / 2);
+	glEnd();
 	
-
+	glBegin(GL_QUADS);
 	// Left face 
 	glVertex3d(-getX() / 2, getY(), -getZ() / 2);
 	glVertex3d(-getX() / 2, getY(), getZ() / 2);
 	glVertex3d(-getX() / 2, 0, getZ() / 2);
 	glVertex3d(-getX() / 2, 0, -getZ() / 2);
-	
+	glEnd();
+
+	glBegin(GL_QUADS);
 	// Right face
 	glVertex3d(getX() / 2, 0, getZ() / 2);
 	glVertex3d(getX() / 2, getY(), getZ() / 2);

@@ -45,8 +45,12 @@
 #include "myVehicle.hpp"
 #include "remotevehicle.hpp"
 #define PI 3.14159265358979323846
+#include "XInputWrapper.h"
+#include "XboxController.h"
 
+XInputWrapper xinput;
 
+GamePad::XBoxController player(&xinput, 0);
 
 
 void display();
@@ -212,7 +216,7 @@ void display() {
 	// draw HUD
 	HUD::Draw();
 	
-	mydraw();
+	//mydraw();
 	
 	glutSwapBuffers();
 
@@ -286,19 +290,19 @@ void idle() {
 	speed = 0;
 	steering = 0;
 
-	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_LEFT)) {
+	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_LEFT) || player.PressedLeftDpad()) {
 		steering = Vehicle::MAX_LEFT_STEERING_DEGS * -1;   
 	}
 
-	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_RIGHT)) {
+	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_RIGHT ) || player.PressedRightDpad()) {
 		steering = Vehicle::MAX_RIGHT_STEERING_DEGS * -1;
 	}
 
-	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_UP)) {
+	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_UP) || player.PressedA()) {
 		speed = Vehicle::MAX_FORWARD_SPEED_MPS;
 	}
 
-	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_DOWN)) {
+	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_DOWN ) || player.PressedB()) {
 		speed = Vehicle::MAX_BACKWARD_SPEED_MPS;
 	}
 

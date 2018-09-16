@@ -25,6 +25,7 @@ void cylindricalprism::draw()
 	positionInGL();
 	setColorInGL();
 
+	glTranslated(0, radius, 0);
 	static GLUquadric *cylinder = gluNewQuadric();
 	gluCylinder(cylinder, radius, radius, depth, 100, 10);
 	gluDisk(cylinder, 0, radius, 100, 10 );
