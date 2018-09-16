@@ -15,8 +15,8 @@ protected:
 
 public:
 	rectangularprism();
-	rectangularprism(double x, double y, double z);//, double rotation, double r, double g, double b);
-	//virtual void draw() = 0;
+	rectangularprism(double xl, double yl, double zl);//, double rotation, double r, double g, double b);
+	
 	virtual void draw();
 	double getX();
 	double getY();

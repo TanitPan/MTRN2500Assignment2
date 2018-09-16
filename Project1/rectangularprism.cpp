@@ -22,11 +22,11 @@ rectangularprism::rectangularprism() : Shape()
 //
 //}
 
-rectangularprism::rectangularprism(double x, double y, double z)
+rectangularprism::rectangularprism(double xl, double yl, double zl)
 {
-	this->lx = x;
-	this->ly = y;
-	this->lz = z;
+	this->lx = xl;
+	this->ly = yl;
+	this->lz = zl;
 }
 
 void rectangularprism::draw()
@@ -37,12 +37,12 @@ void rectangularprism::draw()
 	
 glPushMatrix();
 
-	glColor3f(red, green, blue);
-	glTranslatef(x, y, z);
-	glRotatef(rotation, 0, 1, 0);
+	//glColor3f(red, green, blue);
+	//glTranslatef(x, y, z);
+	
 
-	//positionInGL();
-	//setColorInGL();
+	positionInGL();
+	setColorInGL();
 	//glColor3f(red, 0 ,blue);
 	//glLoadIdentity();
 	//glTranslated(x, y, z);
