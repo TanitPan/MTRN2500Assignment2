@@ -1,8 +1,8 @@
 
 #include "Vehicle.hpp"
 #include "rectangularprism.hpp"
-#include "trapezoidalprism.hpp"
 #include "TriangularPrism.hpp"
+#include "trapezoidalprism.hpp"
 #include "cylindricalprism.hpp"
 
 #include <windows.h>
@@ -59,19 +59,6 @@ void Vehicle::addShape(Shape * shape)
 {
 	shapes.push_back(shape);
 }
-//
-//void Vehicle::myVehicle()
-//{
-//	glPushMatrix();
-//	glTranslated(0, 0.4, 0);
-//	rectangularprism R(3, 1.0, 2, 0, 0, 0.6, 0);
-//	R.draw();
-//	glPopMatrix();
-//
-//	
-//
-//
-//}
 
 double clamp(double a, double n, double b) {
 

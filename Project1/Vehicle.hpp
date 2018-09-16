@@ -31,8 +31,6 @@ public:
 	
 	void addShape(Shape * shape);
 
-	//user define
-	//void myVehicle();
 
 public: // edited by me
 	double speed;     // m/s

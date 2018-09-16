@@ -45,7 +45,7 @@
 #include "myVehicle.hpp"
 #include "remotevehicle.hpp"
 #define PI 3.14159265358979323846
-//cylindricalprism C(0,30,50, 1, 0, 0, 50);
+
 
 
 
@@ -62,17 +62,16 @@ void mouse(int button, int state, int x, int y);
 void dragged(int x, int y);
 void motion(int x, int y);
 void mydraw();
-//void rectangularprism(double x, double y, double z, double r, double g, double b);
 
 
 
 using namespace std;
 using namespace scos;
 
-//myVehicle test1;
+
 
 // Used to store the previous mouse location so we
-//   can calculate relative mouse movement.
+// can calculate relative mouse movement.
 int prev_mouse_x = -1;
 int prev_mouse_y = -1;
 
@@ -91,7 +90,7 @@ int frameCounter = 0;
 //int _tmain(int argc, _TCHAR* argv[]) {
 int main(int argc, char ** argv) {
 
-	//rectangularprism R(1000, 1600, 500, 1, 0, 0);
+	
 	const int WINDOW_WIDTH = 800;
 	const int WINDOW_HEIGHT = 600;
 
@@ -212,16 +211,11 @@ void display() {
 
 	// draw HUD
 	HUD::Draw();
-	//C.draw();
-	/*R.draw();
-	T.draw();
-	trapezoidalprism.draw();
-	C.draw();*/
+	
 	mydraw();
 	
-	
 	glutSwapBuffers();
-	
+
 };
 
 void reshape(int width, int height) {
@@ -331,6 +325,9 @@ void idle() {
 					VehicleModel vm;
 					vm.remoteID = 0;
 				
+					//
+					// student code goes here
+					//
 		
 					ShapeInit part;
 					
@@ -349,19 +346,19 @@ void idle() {
 					part.xyz[2] = 0.0;
 					vm.shapes.push_back(part);
 					//Part number 2
-					/*part.type = TRIANGULAR_PRISM;
-					part.params.tri.alen = 12.0;
-					part.params.tri.blen = 3.0;
-					part.params.tri.angle = 60.0;
-					part.params.tri.depth = 3.0;
-					part.rgb[0] = 1.0;
-					part.rgb[1] = 1.0;
-					part.rgb[2] = 1.0;
+					part.type = TRIANGULAR_PRISM;
+					part.params.tri.alen = 0.5;
+					part.params.tri.blen = 0.5;
+					part.params.tri.angle = 90*PI/180;
+					part.params.tri.depth = 2;
+					part.rgb[0] = 0.80;
+					part.rgb[1] = 0.80;
+					part.rgb[2] = 0.120;
 					part.rotation = 0.0;
-					part.xyz[0] = 0.0;
-					part.xyz[1] = 4.0;
+					part.xyz[0] = 1.75;
+					part.xyz[1] = 0.4;
 					part.xyz[2] = 0.0;
-					vm.shapes.push_back(part);*/
+					vm.shapes.push_back(part);
 					//Part number 3
 					part.type = CYLINDER;
 					part.params.cyl.radius = 0.4;
@@ -433,10 +430,6 @@ void idle() {
 					part.xyz[1] = 1.4;
 					part.xyz[2] = 0.0;
 					vm.shapes.push_back(part);
-					
-					//
-					// student code goes here
-					//
 					
 					RemoteDataManager::Write(GetVehicleModelStr(vm));
 				}
@@ -627,40 +620,17 @@ void motion(int x, int y) {
 	prev_mouse_y = y;
 }
 
-void mydraw()
+void mydraw() // for test drawing
 {
-	
-	///*rectangularprism R(10.0, 16.0, 5.0, 2.0, 0, 0, 1);
-	//triangular T(30.0, 30.0, 30.0, 0.5, 1, 0, 0);
-	//trapezoidalprism trapezoidalprism(30.0, 15.0, 50.0, 0.642, 0, 1, 0);
-	//cylindricalprism C(15, 15, 10, 100, 10, 0, 15, 10);
-	//R.draw();
-	//T.draw();
-	//trapezoidalprism.draw();
-	//C.draw();*/
 	rectangularprism R1(10, 20, 30);
 	triangular T1(20, 50, 30,90*PI/180);
 	trapezoidalprism TP1(40, 20, 10, 0, 20);
 	cylindricalprism C1(50, 100, 0,0);
-	
-	//glColor3d(1, 1, 0);
-	/*glTranslated(30,0,20);
-	R1.draw();*/
-	//glTranslated(40, 0, 50);
-	//glColor3d(1,1,0);
-	//C1.draw();
 	glTranslated(-30, 0, 60);
 	glColor3d(0, 1, 0.8);
 	T1.draw();
-	/*glTranslated(60, 0, 17);
-	glColor3d(0, 1, 0);
-	
-	TP1.draw();*/
-	
-
-
 
 }
-;
+
 
 

@@ -73,8 +73,6 @@ remotevehicle::remotevehicle(VehicleModel Model)
 		shp->setColor(iter->rgb[0], iter->rgb[1], iter->rgb[2]);
 		shp->setPosition(iter->xyz[0], iter->xyz[1], iter->xyz[2]);
 		shp->setRotation(iter->rotation);
-		//shp->(iter->rotation);
-		//std::cout << iter->params.rect.xlen << std::endl;
 		addShape(shp);
 
 	}
@@ -104,26 +102,12 @@ void remotevehicle::draw()
 				cylinder->setRolling(current);
 			}
 
-			//}
+			
 		}
 
 		(*iter)->draw();
 	}
 
 	glPopMatrix();
-	//glPushMatrix();
-	//positionInGL();
-	//setColorInGL();
-	//for (std::vector<Shape*>::iterator iter = shapes.begin(); iter != shapes.end(); ++iter) {
-	//	/*cylindricalprism*cylinder = dynamic_cast<cylindricalprism*>(*iter);
-	//	if (cylinder != nullptr) {
-
-	//	(*iter)->setRotation(getSteering());*/
-
-
-	//	(*iter)->draw();
-	//	//}
-
-	//}
-	//glPopMatrix();
+	
 }

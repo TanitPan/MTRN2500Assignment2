@@ -5,39 +5,21 @@
 #include "Vehicle.hpp"
 #include "myVehicle.hpp"
 
-class cylindricalprism : public Shape //cylinder inherits everything from shape class.
+class cylindricalprism : public Shape  // cylindrical inherit from Shape
 {
 protected:
-	//double Radius;
-	//GLUquadric *cyclinder;
-	double InRadius;
-	double OutRadius;
-	int slices;
-	int loop;
-	double bRadius;
-	double tRadius;
-	double height;
-	int stack;
-	double radius;
 	
+	double radius;
 	double depth;
 
-
 public:
-	double wheel;
-	cylindricalprism();
-	//cylinder(double bRadius, double tRadius, double height, int slices, int stack, double InRadius, double OutRadius, int loop);
-	cylindricalprism(double radius, double depth, bool steer_, bool roll_);
-	/*double getRadius();
-	void setRadius(double radius);*/
-	virtual void draw();
+	
 	bool steering;
 	bool rolling;
-	//bool getSteering() { return steering; } //not needed
-	double getRadius() { return radius; }
-	//void move(double x, double y); //inherited move is sufficient - see definition
-//	bool steering;
-//	bool rolling; 
+	double wheel;
+	double getRadius() { return radius; } // use to get radius for dynamic cast in myVehicle
+	cylindricalprism();
+	cylindricalprism(double radius, double depth, bool steer_, bool roll_);
+    void draw();
 };
-
 #endif

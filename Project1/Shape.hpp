@@ -17,8 +17,9 @@ public:
 	double getY();
 	double getZ();
 	double getRotation();
-	//BY me
-	double getTurning();
+
+	
+	double getTurning();	//added by me
 
 	void setX(double x_);
 	void setY(double y_);
@@ -40,13 +41,9 @@ protected:
 	double x, y, z;               // position
 	double rotation;              // heading of the object in the horizontal plane (degrees)
 	float red, green, blue;       // colour of object
+
 	
-	//added by me
-	double turning;
+	double turning;				  //added by me
+
 };
-
-
-
-
-
 #endif // for MTRN3500_SHAPE_H

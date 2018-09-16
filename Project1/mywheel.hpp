@@ -7,7 +7,7 @@
 #include "TriangularPrism.hpp"
 
 
-class mywheel : public cylindricalprism 
+class mywheel : public cylindricalprism  //create a derive class mywheel from cylindricalprism
 {
 
 protected:

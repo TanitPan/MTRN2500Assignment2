@@ -21,22 +21,10 @@ mywheel::mywheel(double radius, double depth, bool steering_, bool turning_)
 
 void mywheel::draw() {
 
-
 	glPushMatrix();
 	cylindricalprism::draw();
-
-
 	drawCross(radius, radius * 0.1, depth *1.1);
-
-	//triangular A(1.2*radius, 1.2*radius, height, theta);
-	//A.setPosition(x,y+radius/2,z);
-	//A.setColor(0.5,1,0.87);
-	//A.setRotation(rotation);
-	//A.draw();
 	glPopMatrix();
-
-
-
 
 }	
 
@@ -51,14 +39,11 @@ void mywheel::drawCross(float xl, float yl, float zl) {
 
 	positionInGL();
 
-	glTranslated(0, 0, 0.05);
+	glTranslated(0, 0, depth/2);
 	if (rolling != 0) {
 		glRotated(-rolling, 0, 0, 1);
 	}
 	glColor3f(0.2, 0, 0.9);
-
-
-	//setColorInGL();
 
 
 	//Front Face

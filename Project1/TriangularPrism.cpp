@@ -6,7 +6,7 @@ triangular::triangular(): Shape()
 {
 }
 
-triangular::triangular(double x, double y, double z, double theta) //:Shape(x, y, z)
+triangular::triangular(double x, double y, double z, double theta) 
 {
 	this->a = x;
 	this-> b = y;
@@ -20,7 +20,6 @@ void triangular::draw()
 	glPushMatrix();
 	positionInGL();
 	setColorInGL();
-	//glBegin(GL_QUADS);	
 	
 	//Front side
 	glBegin(GL_TRIANGLES);      
@@ -34,7 +33,7 @@ void triangular::draw()
 	glVertex3d(a/2,0,d/2);
 	glVertex3d(-a/2+b*cos(theta),b*sin(theta),d/2);
 
-		glEnd();
+	glEnd();
 
 	glBegin(GL_QUADS);
 	
