@@ -63,7 +63,7 @@ remotevehicle::remotevehicle(VehicleModel Model)
 
 			break;
 		case TRIANGULAR_PRISM:
-			shp = new triangular(iter->params.tri.alen, iter->params.tri.blen, iter->params.tri.depth, -iter->params.tri.angle);
+			shp = new triangular(iter->params.tri.alen, iter->params.tri.blen, iter->params.tri.depth, iter->params.tri.angle);
 
 			break;
 		case TRAPEZOIDAL_PRISM:
@@ -72,7 +72,7 @@ remotevehicle::remotevehicle(VehicleModel Model)
 		}
 		shp->setColor(iter->rgb[0], iter->rgb[1], iter->rgb[2]);
 		shp->setPosition(iter->xyz[0], iter->xyz[1], iter->xyz[2]);
-		//shp->setRotation(iter->rotation);
+		shp->setRotation(iter->rotation);
 		addShape(shp);
 
 	}

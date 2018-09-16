@@ -1,3 +1,7 @@
+//MTRN2500 Assignment 2
+
+//Authors: Tanupat Atthakorn z5224734, Tanit Pan-Anuruk z5224642
+
 
 #include <iostream>
 #include <cstdlib>
@@ -48,6 +52,8 @@
 #include "XInputWrapper.h"
 #include "XboxController.h"
 
+
+//global XboxController variable
 XInputWrapper xinput;
 
 GamePad::XBoxController player(&xinput, 0);
@@ -211,7 +217,7 @@ void display() {
 	ObstacleManager::get()->drawAll();
 
 	// draw goals
-	drawGoals();
+	//drawGoals();
 
 	// draw HUD
 	HUD::Draw();
@@ -289,21 +295,39 @@ void idle() {
 
 	speed = 0;
 	steering = 0;
+	if (PlayerConnection(player)) {
+		if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_LEFT) || player.PressedLeftDpad()) {
+			steering = Vehicle::MAX_LEFT_STEERING_DEGS * -1;
+		}
 
-	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_LEFT) || player.PressedLeftDpad()) {
-		steering = Vehicle::MAX_LEFT_STEERING_DEGS * -1;   
+		if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_RIGHT) || player.PressedRightDpad()) {
+			steering = Vehicle::MAX_RIGHT_STEERING_DEGS * -1;
+		}
+
+		if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_UP) || player.PressedA()) {
+			speed = Vehicle::MAX_FORWARD_SPEED_MPS;
+		}
+
+		if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_DOWN) || player.PressedB()) {
+			speed = Vehicle::MAX_BACKWARD_SPEED_MPS;
+		}
 	}
+	else {
+		if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_LEFT)) {
+			steering = Vehicle::MAX_LEFT_STEERING_DEGS * -1;
+		}
 
-	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_RIGHT ) || player.PressedRightDpad()) {
-		steering = Vehicle::MAX_RIGHT_STEERING_DEGS * -1;
-	}
+		if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_RIGHT)) {
+			steering = Vehicle::MAX_RIGHT_STEERING_DEGS * -1;
+		}
 
-	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_UP) || player.PressedA()) {
-		speed = Vehicle::MAX_FORWARD_SPEED_MPS;
-	}
+		if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_UP)) {
+			speed = Vehicle::MAX_FORWARD_SPEED_MPS;
+		}
 
-	if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_DOWN ) || player.PressedB()) {
-		speed = Vehicle::MAX_BACKWARD_SPEED_MPS;
+		if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_DOWN)) {
+			speed = Vehicle::MAX_BACKWARD_SPEED_MPS;
+		}
 	}
 
 	// attempt to do data communications every 4 frames if we've created a local vehicle
