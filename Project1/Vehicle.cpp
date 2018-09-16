@@ -5,10 +5,21 @@
 #include "trapezoidalprism.hpp"
 #include "cylindricalprism.hpp"
 
-#include <windows.h>
-#include <gl/gl.h>
-#include <gl/glu.h>
 
+#ifdef __APPLE__
+#include <OpenGL/gl.h>
+#include <OpenGL/glu.h>
+#include <GLUT/glut.h>
+#elif defined(WIN32)
+#include <Windows.h>
+#include <GL/gl.h>
+#include <GL/glu.h>
+#include <GL/glut.h>
+#else
+#include <GL/gl.h>
+#include <GL/glu.h>
+#include <GL/glut.h>
+#endif
 
 
 
@@ -73,4 +84,57 @@ double clamp(double a, double n, double b) {
 	return n;
 
 };
+
+double* Vehicle::chase(Vehicle* objcar)
+{
+	double dx = objcar->getX() - x;
+	double dz = objcar->getZ() - z;
+	double distance = sqrt(dx * dx + dz * dz);
+	double angle = atan2(dz, dx) / 3.1415926535 * 180;
+	double steerangle = angle - rotation;
+	double safedistance = 10;
+	double steer = 0, rate = 0;
+	double* RateandSteer = new double[2];
+
+	while (steerangle > 180) steerangle -= 360;
+	while (steerangle < -180) steerangle += 360;
+
+	if (15 <= steerangle)
+	{
+		steer = MAX_LEFT_STEERING_DEGS;
+	}
+	else if (steerangle <= -15)
+	{
+		steer = MAX_RIGHT_STEERING_DEGS;
+	}
+	else
+	{
+		steer = steerangle;
+	}
+	if (distance <= safedistance) // Control distance when chasing 
+	{
+		double difference = (distance - safedistance) / safedistance;
+		if (abs(difference) < 0.1) difference = 0;
+		rate = (1 + difference) * objcar->getSpeed();
+	}
+	else
+	{
+		rate = MAX_FORWARD_SPEED_MPS;
+	}
+	RateandSteer[0] = rate;
+	RateandSteer[1] = steer;
+	return RateandSteer;
+	delete[]RateandSteer;
+
+}
+
+void Vehicle::chaseswitch()
+{
+	ChaseorNot = !ChaseorNot;
+}
+
+bool Vehicle::getchasesignal()
+{
+	return ChaseorNot;
+}
 

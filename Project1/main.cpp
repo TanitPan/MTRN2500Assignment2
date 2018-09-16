@@ -268,7 +268,8 @@ double getTime()
 }
 
 void idle() {
-
+	
+	
 	if (KeyManager::get()->isAsciiKeyPressed('a')) {
 		Camera::get()->strafeLeft();
 	}
@@ -328,6 +329,14 @@ void idle() {
 		if (KeyManager::get()->isSpecialKeyPressed(GLUT_KEY_DOWN)) {
 			speed = Vehicle::MAX_BACKWARD_SPEED_MPS;
 		}
+	}
+	if (vehicle->getchasesignal())
+	{
+		double* SpeedandSteering = new double[2];
+		SpeedandSteering = vehicle->chase(otherVehicles[1]);
+		speed = SpeedandSteering[0];
+		steering = SpeedandSteering[1];
+		delete[]SpeedandSteering;
 	}
 
 	// attempt to do data communications every 4 frames if we've created a local vehicle
@@ -605,6 +614,9 @@ void keydown(unsigned char key, int x, int y) {
 		break;
 	case 'p':
 		Camera::get()->togglePursuitMode();
+		break;
+	case 'L':
+		vehicle->chaseswitch();
 		break;
 	}
 

@@ -30,12 +30,15 @@ public:
 
 	
 	void addShape(Shape * shape);
+	double* chase(Vehicle* objcar);
+	void chaseswitch();
+	bool getchasesignal();
 
 
 public: // edited by me
 	double speed;     // m/s
 	double steering;  // degrees
-
+	double ChaseorNot;
 	std::vector<Shape *> shapes;
 };
 
